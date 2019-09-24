@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+
+<mapper namespace="com.baizhi.dao.AdminDAO">
+    <select id="selectByAdmin" resultType="Admin">
+        select * from t_admin where adminname=#{adminname} and password =#{password}
+    </select>
+    <insert id="addAdmin">
+        insert into t_admin (adminname,password,realname,sex) values (#{adminname},#{password},#{realname},#{sex})
+    </insert>
+    <insert id="addOneAdmin">
+         insert into t_admin (adminname,password,realname,sex) values (#{adminname},#{password},#{realname},#{sex})
+    </insert>
+    <select id="selectAll" resultType="Admin">
+        select * from t_admin
+    </select>
+</mapper>

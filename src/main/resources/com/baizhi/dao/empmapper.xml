@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+
+<mapper namespace="com.baizhi.dao.EmpDAO">
+    <delete id="deleteById">
+        delete from t_emp where emp_id=#{emp_id}
+    </delete>
+    <insert id="addOne">
+        insert into t_emp(empname,age,salary,dept_id,cover) values (#{empname},#{age},#{salary},#{dept_id},#{cover})
+    </insert>
+    <select id="selectOne" resultType="Emp">
+        select * from  t_emp where emp_id=#{empId}
+    </select>
+    <update id="updateOne">
+        update t_emp set empname=#{empname},age=#{age},salary=#{salary},dept_id=#{dept_id}
+        <if test="cover!=null and cover!=''"> ,cover=#{cover}</if>
+        where  emp_id=#{emp_id}
+    </update>
+</mapper>

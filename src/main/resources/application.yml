@@ -1,0 +1,21 @@
+server:
+  port: 8989
+  context-path: /EMS
+spring:
+  mvc:
+    view:
+      prefix: /
+      suffix: .jsp
+  datasource:
+    type: org.apache.commons.dbcp.BasicDataSource   #指定连接池类型
+    driver-class-name: com.mysql.jdbc.Driver        #指定驱动
+    url: jdbc:mysql://localhost:3306/ems           #指定url
+    username: root									#指定用户名
+    password: root
+  http:
+    multipart:
+      max-request-size: 209715200
+      max-file-size: 100000000
+mybatis:
+  mapper-locations: classpath:com/baizhi/dao/*.xml
+  type-aliases-package: com.baizhi.entity
